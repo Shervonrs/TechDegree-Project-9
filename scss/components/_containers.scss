@@ -1,0 +1,15 @@
+// .fullpage_slide{
+//   @include flexbox($dir:row)
+//   width: 60%;
+// }
+
+.ship {
+  width: 25%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  width: 100%;
+}

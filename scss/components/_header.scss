@@ -1,0 +1,52 @@
+
+header {
+  @include flexbox($dir:row, $just: space-between);
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100%;
+  padding: 40px 40px 0;
+  z-index:1000;
+};
+
+header .name {
+  text-decoration: none;
+  font-size: 24px;
+  letter-spacing: .1em;
+  position: relative;
+  font-family: futura_r;
+  &:hover {
+    opacity: .8;
+    color:$white;
+  }
+}
+.fa,
+.navList a,
+.name,
+.icons {
+  color: $white;
+}
+
+.fa {
+  margin-left: 2rem;
+  display: inline-block;
+  font-size: 2rem;
+}
+
+// .container {
+//   @include flexbox($just:center, $dir:row, $align-items: center);
+//   width: 50%;
+// }
+
+.menuIcon {
+  cursor: pointer;
+  width: 50px;
+  height: 22px;
+  position: relative;
+  border: 1px solid black;
+}
+
+.navList {
+  color: $white;
+  display: none;
+}
