@@ -1,6 +1,6 @@
 const Parallax = require('parallax-js');
-let mtn_parallax = document.getElementsByClassName('js-parallax-mtn');
-var parallaxInstance = new Parallax(mtn_parallax);
+// let mtn_parallax = document.getElementsByClassName('js-parallax-mtn');
+// var parallaxInstance = new Parallax(mtn_parallax);
 
 // export.app= app
 // $(document).ready(function (){

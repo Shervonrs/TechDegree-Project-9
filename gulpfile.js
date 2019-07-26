@@ -42,11 +42,6 @@ function concatCSS(){
   .pipe(browserSync.stream());
 }
 
-function javascrip(){
-  gulp.src('./js/app.js')
-  .pipe(bro())
-  .pipe(gulp.dest(js))
-}
 // function javascript(){
 //   return gulp.src(['./js/app.js' ])
 //   .pipe(concat('/main.js'))
@@ -56,23 +51,22 @@ function javascrip(){
 //   .pipe(browserSync.stream());
 // }
 
-// function browif(){
-//
-//   return browserify({
-//     extensions:['.js'],
-//     entries:[],
-//     debug: true
-//   })
-//   .transform("babelify",{
-//     presets:['@babel/preset-env']
-//   })
-//   .bundle()
-//   .pipe(source('bundle.min.js'))
-//   .pipe(buffer())
-//   .pipe(sourcemaps.init())
-//   .pipe(gulp.dest('js'))
-//   .pipe(browserSync.stream());
-// }
+function browif(){
+  return browserify({
+    extensions:['.js'],
+    entries:['./js/app.js'],
+    debug: true
+  })
+  .transform("babelify",{
+    presets:['@babel/preset-env']
+  })
+  .bundle()
+  .pipe(source('bundle.min.js'))
+  .pipe(buffer())
+  .pipe(sourcemaps.init())
+  .pipe(gulp.dest('js'))
+  .pipe(browserSync.stream());
+}
 
 function watch(){
   browserSync.init({
