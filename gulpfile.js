@@ -1,5 +1,8 @@
 const gulp = require('gulp'),
       autoprefixer = require('gulp-autoprefixer'),
+      browserify = require('gulp-browserify'),
+      env = require('babel-preset-env'),
+      babelify = require('babelify'),
       browserSync = require('browser-sync').create(),
       reload = browserSync.reload,
       sass = require('gulp-sass'),
@@ -10,7 +13,10 @@ const gulp = require('gulp'),
       changed=require('gulp-changed'),
       uglify = require('gulp-uglify'),
       terser= require('gulp-terser'),
-      lineEC =require('gulp-line-ending-corrector');
+      lineEC =require('gulp-line-ending-corrector'),
+      source= require('vinyl-source-stream'),
+      buffer = require('vinyl-buffer');
+
 
 function css() {
   return gulp.src('./scss/**/*.scss')
@@ -36,14 +42,37 @@ function concatCSS(){
   .pipe(browserSync.stream());
 }
 
-function javascript(){
-  return gulp.src(['./js/app.js','./js/parallax.js' ])
-  .pipe(concat('/main.js'))
-  .pipe(terser())
-  .pipe(lineEC())
-  .pipe(gulp.dest('js'))
-  .pipe(browserSync.stream());
+function javascrip(){
+  gulp.src('./js/app.js')
+  .pipe(bro())
+  .pipe(gulp.dest(js))
 }
+// function javascript(){
+//   return gulp.src(['./js/app.js' ])
+//   .pipe(concat('/main.js'))
+//   .pipe(terser())
+//   .pipe(lineEC())
+//   .pipe(gulp.dest('js'))
+//   .pipe(browserSync.stream());
+// }
+
+// function browif(){
+//
+//   return browserify({
+//     extensions:['.js'],
+//     entries:[],
+//     debug: true
+//   })
+//   .transform("babelify",{
+//     presets:['@babel/preset-env']
+//   })
+//   .bundle()
+//   .pipe(source('bundle.min.js'))
+//   .pipe(buffer())
+//   .pipe(sourcemaps.init())
+//   .pipe(gulp.dest('js'))
+//   .pipe(browserSync.stream());
+// }
 
 function watch(){
   browserSync.init({
@@ -52,13 +81,14 @@ function watch(){
     }
   });
   gulp.watch('./scss/**/*.scss', gulp.series([css, concatCSS]));
-  gulp.watch('./js/app.js', javascript);
+  gulp.watch('./js/app.js', browif) //gulp.series([javascript, browif]));
   gulp.watch('./*.html').on('change', browserSync.reload);
 }
 
 exports.css = css;
 exports.concatCSS = concatCSS;
-exports.javascript = javascript;
+// exports.javascript = javascript;
+exports.browif = browif;
 exports.watch = watch;
 
 

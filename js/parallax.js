@@ -6,6 +6,7 @@
 *              If no gyroscope is available, the cursor position is used.
 */
 
+
 const rqAnFr = require('raf')
 const objectAssign = require('object-assign')
 
