@@ -24,7 +24,7 @@
     "babelify": "^8.0.0",
     "barba.js": "^1.0.0",
     "bro": "0.0.3",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.27.10",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-browserify": "^0.5.1",
